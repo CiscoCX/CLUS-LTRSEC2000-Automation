@@ -1,0 +1,37 @@
+---
+#
+# List of pod users
+#
+users:
+- username: pod1-awsadmin
+- username: pod2-awsadmin
+- username: pod3-awsadmin
+- username: pod4-awsadmin
+- username: pod5-awsadmin
+- username: pod6-awsadmin
+- username: pod7-awsadmin
+- username: pod8-awsadmin
+- username: pod9-awsadmin
+- username: pod10-awsadmin
+- username: pod11-awsadmin
+- username: pod12-awsadmin
+- username: pod13-awsadmin
+- username: pod14-awsadmin
+- username: pod15-awsadmin
+- username: pod16-awsadmin
+- username: pod17-awsadmin
+- username: pod18-awsadmin
+- username: pod19-awsadmin
+- username: pod20-awsadmin
+- username: pod21-awsadmin
+- username: pod22-awsadmin
+- username: pod23-awsadmin
+- username: pod24-awsadmin
+- username: pod25-awsadmin
+- username: pod26-awsadmin
+- username: pod27-awsadmin
+- username: pod28-awsadmin
+- username: pod29-awsadmin
+- username: pod30-awsadmin
+
+...
