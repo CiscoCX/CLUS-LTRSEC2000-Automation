@@ -2,12 +2,13 @@
 #
 # Task used to setup some of the parts for LTRSEC-2000 or an internally run lab
 #
-- name: AWS/Ansible Lab Setup
+- name: AWS Ansible Lab Setup
   hosts: localhost
-vars_files:
-  vars/users.yaml
-  vars/aws.yaml
-  
+  gather_facts: yes
+  vars_files:
+    vars/users.yaml
+    vars/aws.yaml
+
   tasks:
     - name: Setup IAM Users
       loop: "{{ vars/users }}"
