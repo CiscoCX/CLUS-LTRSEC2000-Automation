@@ -2,7 +2,7 @@
 # Create IAM User
 #
 - name: Create IAM User
-  iam:
+  amazon.aws.iam:
     iam_type: user
     name: "{{item}}"
     state: present
