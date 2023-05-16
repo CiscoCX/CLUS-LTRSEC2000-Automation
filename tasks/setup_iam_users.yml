@@ -1,4 +1,11 @@
 #
 # Create IAM User
 #
-
+- name: Create IAM User
+  iam:
+    iam_type: user
+    name: "{{item}}"
+    state: present
+    password: CLUS2023Party!
+    aws_access_key: "{{ec2_access_key}}"
+    aws_secret_key: "{{ec2_secret_key}}"
