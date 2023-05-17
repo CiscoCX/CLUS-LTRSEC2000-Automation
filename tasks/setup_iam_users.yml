@@ -3,10 +3,14 @@
 # Create IAM User
 #
 
-  - name: Create IAM User
+  - name: "Create IAM User {{item.username}}"
     amazon.aws.iam_user:
       name: "{{item.username}}"
       state: present
       password: CLUS2023Party!
+      managed_policies:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+      tags:
+        Pod: True
 
 ...

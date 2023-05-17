@@ -3,4 +3,13 @@
 # Task to list IAM users
 #
 
-- name: List IAM users
+- name: Get IAM user info
+  amazon.aws.iam_user_info:
+    path: "/"
+  register: returned_users
+
+- name: IAM user info
+  ansible.builtin.debug:
+    msg: "{{returned_users}}"
+
+...

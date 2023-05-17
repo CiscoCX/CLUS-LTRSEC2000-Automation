@@ -1,0 +1,17 @@
+---
+#
+# Task to delete IAM users
+#
+
+- name: Get IAM user info
+  amazon.aws.iam_user_info:
+    path: "/"
+  register: returned_users
+
+- name: Deleting Pod Users
+  with_items: "{{returned_users.iam_users}}"
+  when: item.user_name.startswith('pod')
+  amazon.aws.iam_user:
+    name: "{{item.user_name}}"
+    state: absent
+...

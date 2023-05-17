@@ -8,3 +8,10 @@
   gather_facts: yes
   vars_files: 
     - ./vars/main.yml
+
+  tasks:
+    - name: List IAM Users
+      ansible.builtin.include_tasks: tasks/list_iam_users.yml
+
+    - name: Delete IAM Users
+      ansible.builtin.include_tasks: tasks/delete_iam_users.yml
