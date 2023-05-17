@@ -2,16 +2,28 @@
 #
 # Task used to setup some of the parts for LTRSEC-2000 or an internally run lab
 #
+
 - name: AWS Ansible Lab Setup
   hosts: localhost
   gather_facts: yes
-  vars_files:
-    vars/users.yaml
-    vars/aws.yaml
+  vars_files: 
+    vars/main.yml
 
   tasks:
+    - name: Debug vars
+      ansible.builtin.debug:
+        msg: "All Vars: {{vars}}"
+
+    - name: Display resolv.conf contents
+      command: cat ./vars/main.yml
+      register: command_output
+
+    - name: Print to console
+      ansible.builtin.debug:
+        msg: "{{command_output.stdout}}"
+
     - name: Setup IAM Users
-      loop: "{{ vars/users }}"
-      ansible.builtin.include_tasks: tasks/setup_iam_users.yaml
+      loop: "{{users}}"
+      ansible.builtin.include_tasks: tasks/setup_iam_users.yml
 
 ...
