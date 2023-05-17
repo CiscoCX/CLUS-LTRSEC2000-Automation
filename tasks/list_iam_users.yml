@@ -1,0 +1,6 @@
+---
+#
+# Task to list IAM users
+#
+
+- name: List IAM users
