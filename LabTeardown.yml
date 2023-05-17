@@ -1,0 +1,10 @@
+---
+#
+# Task used to setup some of the parts for LTRSEC-2000 or an internally run lab
+#
+
+- name: AWS Ansible Lab Teardown
+  hosts: localhost
+  gather_facts: yes
+  vars_files: 
+    - ./vars/main.yml

@@ -3,4 +3,4 @@
 # Main environemtn variable files
 #
 
-region: us-east-2
+AWS_REGION: us-east-2

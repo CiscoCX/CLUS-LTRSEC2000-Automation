@@ -7,21 +7,10 @@
   hosts: localhost
   gather_facts: yes
   vars_files: 
-    vars/main.yml
+    - ./vars/main.yml
+    - ./vars/users.yml
 
   tasks:
-    - name: Debug vars
-      ansible.builtin.debug:
-        msg: "All Vars: {{vars}}"
-
-    - name: Display resolv.conf contents
-      command: cat ./vars/main.yml
-      register: command_output
-
-    - name: Print to console
-      ansible.builtin.debug:
-        msg: "{{command_output.stdout}}"
-
     - name: Setup IAM Users
       loop: "{{users}}"
       ansible.builtin.include_tasks: tasks/setup_iam_users.yml
