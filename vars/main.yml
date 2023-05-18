@@ -3,4 +3,11 @@
 # Main environemtn variable files
 #
 
+####
+#AWS Variables
+###
 AWS_REGION: us-east-2
+
+###
+#Windows Jump Box Variables
+###
