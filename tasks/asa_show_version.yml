@@ -1,0 +1,14 @@
+---
+#
+# Task to create the users and/or changes the password for VPN users
+#
+
+- name: SHOW VERSION
+  cisco.asa.asa_command:
+    commands:
+      - show version
+  register: asa_version
+
+- name: ASA Version
+  ansible.builtin.debug:
+    msg: "{{asa_version}}"
