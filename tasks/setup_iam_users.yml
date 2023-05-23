@@ -4,6 +4,7 @@
 #
 
 - name: "Create IAM User {{item.username}}"
+  with_items: "{{users}}"
   amazon.aws.iam_user:
     name: "{{item.username}}"
     state: present

@@ -1,6 +1,6 @@
 ---
 #
-# Task to create the users and/or changes the password for VPN users
+# Task to show the asa version
 #
 
 - name: SHOW VERSION
