@@ -7,7 +7,7 @@
   amazon.aws.iam_user:
     name: "{{item.username}}"
     state: present
-    password: "{{iam_password}}"
+    password: "{{ lookup('ansible.builtin.env', 'iam_password') }}"
     managed_policies:
       - arn:aws:iam::aws:policy/AdministratorAccess
     tags:
