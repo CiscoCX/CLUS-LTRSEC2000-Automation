@@ -6,7 +6,7 @@
 ###
 #Global Variables
 ###
-NUM_PODS: 30
+NUM_PODS: 1
 
 ####
 #AWS Variables
@@ -19,4 +19,6 @@ AWS_VPC: vpc-0a61b7f1d92102ad6
 ###
 WINDOWS_AMI: ami-056a3f483209d3271
 WINDOWS_SUBNET: subnet-0cf86b138b53ba3c9
+WINDOWS_IP_SUBNET: 172.18.27.
 WINDOWS_SECURITY_GROUP: sg-03e708f457c81a030
+EC2_KEY_NAME: zer0k-mgmt

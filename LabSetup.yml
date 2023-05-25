@@ -13,6 +13,9 @@
     - name: Setup IAM Users
       ansible.builtin.include_tasks: tasks/setup_iam_users.yml
 
+    - name: Setup Windows Provisioning Servers
+      ansible.builtin.include_tasks: tasks/create_windows_ec2_instances.yml
+
 
 - name: AWS ASA Lab Setup
   hosts: asa

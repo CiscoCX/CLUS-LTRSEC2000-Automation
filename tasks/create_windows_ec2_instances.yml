@@ -1,0 +1,20 @@
+---
+#
+# Task to create the Windows EC2 instances
+# Uses existing key
+#
+
+- name: Create Windows EC2 instances
+  with_sequence: start=0 end={{ NUM_PODS }}
+  amazon.aws.ec2_instance:
+    region: "{{ AWS_REGION }}"
+    name: Pod{{ item }}-Windows-Jump-Host
+    key_name: "{{ EC2_KEY_NAME }}"
+    vpc_subnet_id: "{{ WINDOWS_SUBNET }}"
+    instance_type: t2.micro
+    security_group: "{{ WINDOWS_SECURITY_GROUP }}"
+    image_id: "{{ WINDOWS_AMI }}"
+    network:
+      private_ip_address: "{{ WINDOWS_IP_SUBNET }}{{ item }}"
+    tags:
+      Pod: True
