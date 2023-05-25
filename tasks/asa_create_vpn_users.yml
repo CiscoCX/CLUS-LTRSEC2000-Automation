@@ -3,22 +3,18 @@
 # Task to create VPN users or change their passwords (same thing in the cli)
 #
 
-- name: Do I have my vpn users list?
-  ansible.builtin.debug:
-    msg: "{{vpn_users}}"
-
 - name: Creating VPN Users
-  with_items: "{{vpn_users}}"
+  with_sequence: start=0 end={{ NUM_PODS }}
   cisco.asa.asa_config:
     save_when: changed
     lines:
-      - username {{item.username}} password {{ lookup('ansible.builtin.env', 'iam_password') }}
+      - username pod{{ item }}-ravpn password {{ lookup('ansible.builtin.env', 'iam_password') }}
 
 - name: Setting User RAVPN attributes
-  with_items: "{{vpn_users}}"
+  with_sequence: start=0 end={{ NUM_PODS }}
   cisco.asa.asa_config:
     save_when: changed
     lines:
       - service-type remote-access
-    parents: username {{item.username}} attributes
+    parents: username pod{{ item }}-ravpn attributes
     

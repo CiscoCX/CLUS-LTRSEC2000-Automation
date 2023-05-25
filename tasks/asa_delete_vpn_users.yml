@@ -3,14 +3,10 @@
 # Task to delete VPN users
 #
 
-- name: Do I have my vpn users list?
-  ansible.builtin.debug:
-    msg: "{{vpn_users}}"
-
 - name: Deleting VPN Users
-  with_items: "{{vpn_users}}"
+  with_sequence: start=0 end={{ NUM_PODS }}
   cisco.asa.asa_config:
     save_when: changed
     lines:
-      - no username {{item.username}} attributes
-      - no username {{item.username}}
+      - no username pod{{ item }}-ravpn attributes
+      - no username pod{{ item }}-ravpn

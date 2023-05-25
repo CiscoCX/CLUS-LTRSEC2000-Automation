@@ -21,7 +21,6 @@
   gather_facts: no
   vars_files: 
     - ./vars/main.yml
-    - ./vars/users.yml
 
   tasks:
     - name: ASA Show Version

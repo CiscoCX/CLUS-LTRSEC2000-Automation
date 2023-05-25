@@ -3,10 +3,10 @@
 # Create IAM User
 #
 
-- name: "Create IAM User {{item.username}}"
-  with_items: "{{users}}"
+- name: "Create IAM Users"
+  with_sequence: start=0 end={{ NUM_PODS }}
   amazon.aws.iam_user:
-    name: "{{item.username}}"
+    name: "pod{{ item }}-awsadmin"
     state: present
     password: "{{ lookup('ansible.builtin.env', 'iam_password') }}"
     managed_policies:

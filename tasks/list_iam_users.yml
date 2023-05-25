@@ -10,6 +10,6 @@
 
 - name: IAM user info
   ansible.builtin.debug:
-    msg: "{{returned_users}}"
+    msg: "{{ returned_users }}"
 
 ...

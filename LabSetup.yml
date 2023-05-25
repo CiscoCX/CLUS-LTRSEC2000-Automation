@@ -8,7 +8,6 @@
   gather_facts: yes
   vars_files: 
     - ./vars/main.yml
-    - ./vars/users.yml
 
   tasks:
     - name: Setup IAM Users
@@ -20,7 +19,6 @@
   gather_facts: no
   vars_files: 
     - ./vars/main.yml
-    - ./vars/users.yml
 
   tasks:
     - name: ASA Show Version

@@ -1,0 +1,16 @@
+---
+#
+# Loop X times and print the number in the loop
+#
+
+- name: AWS Ansible Lab Setup
+  hosts: localhost
+  gather_facts: no
+  vars_files: 
+    - ./vars/main.yml
+
+  tasks:
+    - name: loop 20 times
+      ansible.builtin.debug:
+        msg: "pod{{ item }}-awsadmin"
+      with_sequence: start=0 end={{ NUM_PODS }}
