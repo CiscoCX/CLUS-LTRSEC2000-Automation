@@ -16,6 +16,9 @@
     - name: Delete IAM Users
       ansible.builtin.include_tasks: tasks/delete_iam_users.yml
 
+    - name: Delete Windows Provisioning Servers
+      ansible.builtin.include_tasks: tasks/delete_windows_ec2_instances.yml
+
 - name: AWS ASA Lab Teardown
   hosts: asa
   gather_facts: no

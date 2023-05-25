@@ -1,0 +1,25 @@
+---
+#
+# Task to create the Windows EC2 instances
+# Uses existing key
+#
+
+- name: Fetch ec2 instances for region and print them
+  amazon.aws.ec2_instance_info:
+    region: "{{ AWS_REGION }}"
+    filters:
+      "tag:Pod": "True"
+      instance-state-name: ["pending", "running", "shutting-down", "stopping", "stopped"]
+  register: pod_instances
+
+- name: List Pod Instances
+  ansible.builtin.debug:
+    msg: "{{ pod_instances }}"
+
+- name: Delete Pod Servers
+  with_items: "{{pod_instances.instances}}"
+  amazon.aws.ec2_instance:
+    region: "{{ AWS_REGION }}"
+    state: absent
+    instance_ids: ["{{ item.instance_id}}"]
+...

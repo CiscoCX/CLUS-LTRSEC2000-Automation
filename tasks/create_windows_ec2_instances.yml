@@ -18,3 +18,5 @@
       private_ip_address: "{{ WINDOWS_IP_SUBNET }}{{ item }}"
     tags:
       Pod: True
+
+...
