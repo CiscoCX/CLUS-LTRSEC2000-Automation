@@ -23,10 +23,10 @@
   vars_files: 
     - ./vars/main.yml
 
-  tasks:
-    - name: ASA Show Version
-      when: inventory_hostname in groups['asa']
-      ansible.builtin.include_tasks: tasks/asa_show_version.yml
+  #tasks:
+    #- name: ASA Show Version
+    #  when: inventory_hostname in groups['asa']
+    #  ansible.builtin.include_tasks: tasks/asa_show_version.yml
 
     - name: ASA VPN User Update
       when: inventory_hostname in groups['asa']
