@@ -8,17 +8,22 @@
 ###
 NUM_PODS: 1
 
-####
+###
 #AWS Variables
 ###
 AWS_REGION: us-east-2
 AWS_VPC: vpc-0a61b7f1d92102ad6
 
 ###
+#Azure Variables
+###
+AZURE_TENANT: 6d92df37-cb73-4152-bfd5-54c7828c09c4
+
+###
 #Windows Jump Box Variables
 ###
-WINDOWS_AMI: ami-056a3f483209d3271
+WINDOWS_AMI: ami-064bd0ed577c2c955
 WINDOWS_SUBNET: subnet-0cf86b138b53ba3c9
-WINDOWS_IP_SUBNET: 172.18.27.
+WINDOWS_IP_SUBNET: 172.18.26.
 WINDOWS_SECURITY_GROUP: sg-03e708f457c81a030
 EC2_KEY_NAME: zer0k-mgmt

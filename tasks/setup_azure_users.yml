@@ -1,0 +1,18 @@
+---
+#
+# Task used to setup azure users for LTRSEC-2000
+#
+
+#- name: Create Azure AD User
+#  azure.azcollection.azure_rm_aduser:
+#    user_principal_name: testuser
+#    state: "present"
+#    account_enabled: "True"
+#    password_profile: "{{ lookup('ansible.builtin.env', 'iam_password') }}"
+#    user_type: "Global Administrator"
+#    tenant: "{{AZURE_TENANT}}"
+
+- name: Show Azure AD Users
+  azure.azcollection.azure_rm_aduser_info:
+    all: True
+    tenant: "{{AZURE_TENANT}}"

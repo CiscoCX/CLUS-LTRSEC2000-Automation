@@ -11,7 +11,7 @@
 
   tasks:
     - name: Setup IAM Users
-      ansible.builtin.include_tasks: tasks/setup_iam_users.yml
+      ansible.builtin.include_tasks: tasks/setup_aws_users.yml
 
     - name: Setup Windows Provisioning Servers
       ansible.builtin.include_tasks: tasks/create_windows_ec2_instances.yml
@@ -23,10 +23,10 @@
   vars_files: 
     - ./vars/main.yml
 
-  #tasks:
-    #- name: ASA Show Version
-    #  when: inventory_hostname in groups['asa']
-    #  ansible.builtin.include_tasks: tasks/asa_show_version.yml
+  tasks:
+    - name: ASA Show Version
+      when: inventory_hostname in groups['asa']
+      ansible.builtin.include_tasks: tasks/asa_show_version.yml
 
     - name: ASA VPN User Update
       when: inventory_hostname in groups['asa']
